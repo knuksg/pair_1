@@ -1,15 +1,30 @@
 {% extends 'base.html' %} {% block content %}
-<p>new.html</p>
-<form action="{% url 'pos:create' %}">
+<form action="{% url 'pos:create' %}" name="posform">
   <div class="mb-3">
     <label for="" class="form-label">제목</label>
     <input type="text" class="form-control" name="title" id="" aria-describedby="helpId" placeholder="" />
   </div>
   <div class="mb-3">
-    <label for="" class="form-label">내용</label>
-    <input type="text" class="form-control" name="content" id="" aria-describedby="helpId" placeholder="" />
+    <label for="content" class="form-label">내용</label>
+    <textarea name="content" class="form-control" id="content" rows="3"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">리뷰 쓰기</button>
+  <div class="d-grid">
+    <button id="submit" type="submit" class="btn btn-primary">리뷰 쓰기</button>
+  </div>
 </form>
 
+<script>
+  // 비어있을 때 알림 보내기
+  const submit = document.querySelector("#submit");
+  submit.addEventListener("click", function (event) {
+    const posForm = document.posform;
+    if (!posForm.title.value) {
+      event.preventDefault();
+      alert("제목이 비어 있습니다.");
+    } else if (!posForm.content.value) {
+      event.preventDefault();
+      alert("내용이 비어 있습니다.");
+    }
+  });
+</script>
 {% endblock content %}

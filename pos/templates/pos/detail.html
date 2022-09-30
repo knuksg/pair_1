@@ -1,9 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>제목:{{ detail.title }}</h1>
+<hr />
 <p>내용: {{ detail.content }}</p>
-
-<button><a href="{% url 'pos:edit' detail.pk %}" class="text-decoration-none">리뷰 수정</a></button>
-<button><a href="{% url 'pos:delete' detail.pk %}" class="text-decoration-none">리뷰 삭제</a></button>
+<div class="d-flex justify-content-end gap-2">
+  <button class="btn btn-primary"><a href="{% url 'pos:edit' detail.pk %}" class="text-decoration-none text-white">리뷰 수정</a></button>
+  <button class="btn btn-primary"><a href="{% url 'pos:delete' detail.pk %}" class="text-decoration-none text-white">리뷰 삭제</a></button>
+</div>
 
 {% endblock %}
