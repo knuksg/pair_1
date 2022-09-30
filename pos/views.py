@@ -31,3 +31,19 @@ def detail(request, pk_):
     }
     #return redirect('pos:index')
     return render(request, 'pos/detail.html', context)
+
+def edit(request, pk_):
+    detail = Review.objects.get(pk=pk_)
+    context = {
+        'detail' : detail
+    }
+    return render(request, 'pos/edit.html', context)
+
+def update(request, pk_):
+    detail = Review.objects.get(pk=pk_)
+    title = request.GET.get('title')
+    content = request.GET.get('content')
+    detail.title = title
+    detail.content = content
+    detail.save()
+    return redirect('pos:index')
