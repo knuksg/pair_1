@@ -4,6 +4,6 @@
 <p>내용: {{ detail.content }}</p>
 
 <button><a href="{% url 'pos:edit' detail.pk %}" class="text-decoration-none">리뷰 수정</a></button>
-<button><a href="" class="text-decoration-none">리뷰 삭제</a></button>
+<button><a href="{% url 'pos:delete' detail.pk %}" class="text-decoration-none">리뷰 삭제</a></button>
 
 {% endblock %}

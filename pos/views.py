@@ -29,7 +29,6 @@ def detail(request, pk_):
     context = {
         'detail' : detail
     }
-    #return redirect('pos:index')
     return render(request, 'pos/detail.html', context)
 
 def edit(request, pk_):
@@ -46,4 +45,9 @@ def update(request, pk_):
     detail.title = title
     detail.content = content
     detail.save()
+    return redirect('pos:index')
+
+def delete(request, pk_):
+    delete = Review.objects.get(pk=pk_)
+    delete.delete()
     return redirect('pos:index')
