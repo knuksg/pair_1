@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <div class="table-responsive">
+  <a href="{% url 'pos:new' %}" class="text-decoration-none">리뷰 작성</a>
   <table class="table table-primary">
     <thead>
       <tr>
@@ -8,12 +9,13 @@
         <th scope="col">리뷰 작성 시간</th>
       </tr>
     </thead>
+
     <tbody>
       {% for review in reviews %}
       <tr class="">
-        <td scope="row">{{review.id}}</td>
-        <td>{{review.title}}</td>
-        <td>{{review.created_at}}</td>
+        <td scope="row"><a href="{% url 'pos:detail' %}">{{review.id}}</a></td>
+        <td><a href="{% url 'pos:detail' %}">{{review.title}}</a></td>
+        <td><a href="{% url 'pos:detail' %}">{{review.created_at}}</a></td>
       </tr>
       {% endfor %}
     </tbody>
