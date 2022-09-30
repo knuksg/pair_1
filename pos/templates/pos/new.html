@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+<p>new.html</p>
+<form action="{% url 'pos:create' %}">
+  <div class="mb-3">
+    <label for="" class="form-label">제목</label>
+    <input type="text" class="form-control" name="title" id="" aria-describedby="helpId" placeholder="" />
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">내용</label>
+    <input type="text" class="form-control" name="content" id="" aria-describedby="helpId" placeholder="" />
+  </div>
+  <button type="submit" class="btn btn-primary">리뷰 쓰기</button>
+</form>
+
+{% endblock content %}
