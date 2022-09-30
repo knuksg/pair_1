@@ -14,17 +14,12 @@
       {% for review in reviews %}
       <tr class="">
         <td scope="row">{{review.id}}</td>
-        <td><a href="{% url 'pos:detail' %}">{{review.title}}</a></td>
+        <td><a href="{% url 'pos:detail' review.id %}">{{review.title}}</a></td>
         <td>{{review.created_at}}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
-
-<h1><b>리뷰 목록 보기</b></h1>
-<h1><b>리뷰 작성 하기</b></h1>
-<h1><b>리뷰 수정 하기</b></h1>
-<h1><b>리뷰 삭제 하기</b></h1>
 
 {% endblock %}

@@ -4,6 +4,7 @@ from .models import Review
 
 def index(request):
     reviews = Review.objects.all()
+    
     context = {
         'reviews': reviews
     }
@@ -22,5 +23,11 @@ def create(request):
     Review.objects.create(title=title, content=content)
     return redirect('pos:index')
 
-def detail(request):
-    return redirect('pos:index')
+def detail(request, pk_):
+    detail = Review.objects.get(pk=pk_)
+    detail.save()
+    context = {
+        'detail' : detail
+    }
+    #return redirect('pos:index')
+    return render(request, 'pos/detail.html', context)
